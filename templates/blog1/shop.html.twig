@@ -1,0 +1,20 @@
+
+{% block body %}
+<p><a href="{{ path('add_product') }}">Ajouter un produit</a></p>
+{% for product in products %}
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+        </thead>
+        <tbody>
+            <td>{{ product.id }}</td>
+            <td><a href="{{ path('product', {'id': product.id}) }}">{{ product.nom }}</a></td>
+            <td>{{ product.prix }}</td>
+            <td><a href="{{ path('delete_product', {'id': product.id}) }}">Supprimer</a></td>
+             <td><a href="{{ path('modify_product', {'id': product.id}) }}">Modifier</a></td>
+        </tbody>
+    </table>
+{% endfor %}
+{% endblock %}

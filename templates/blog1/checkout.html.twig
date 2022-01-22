@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{% form_theme formclient 'Bootstrap_4_layout.html.twig' %}
+
+<div class="breacrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text product-more">
+                        <a href="./index.html"><i class="fa fa-home"></i> Home</a>
+                        <a href="./shop.html">Shop</a>
+                        <span>Check Out</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb Section Begin -->
+
+    <!-- Shopping Cart Section Begin -->
+    <section class="checkout-section spad">
+        <div class="container">
+            <div class="checkout-form">
+                <div class="row">
+                    <div class="col-lg-6">
+                        
+                        <h4>Biiling Details</h4>
+                        <div class="row">
+                            {{ form_start(formclient) }}
+    
+                         {{ form_row(formclient.fname,{'attr' :{'placeholder' : "fname"}}) }}
+                         {{ form_row(formclient.lname,{'attr' :{'placeholder' : "lname"}}) }}
+                        <div class="order-btn">
+                                    <button type="submit" class="site-btn place-btn">Place Order</button>
+                                </div>
+                        
+                         {{ form_end(formclient) }}   
+                            <div class="col-lg-12">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        
+                        <div class="place-order">
+                            <h4>Your Order</h4>
+                            <div class="order-total">
+                                <ul class="order-table">
+                                    {% for item in items %}
+
+                                    <li>Product <span>Total</span></li>
+                                    <li class="fw-normal">{{item.product.nom}}<span>{{(item.quantity)*(item.product.pu)}}</span></li>
+                             {% endfor %}   
+
+                                    <li class="total-price">Total <span>{{ total }}</span></li>
+                                </ul>
+                               
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Shopping Cart Section End -->
+
+    <!-- Partner Logo Section Begin -->
+    <div class="partner-logo">
+        <div class="container">
+            <div class="logo-carousel owl-carousel">
+                <div class="logo-item">
+                    <div class="tablecell-inner">
+                        <img src="img/logo-carousel/logo-1.png" alt="">
+                    </div>
+                </div>
+                <div class="logo-item">
+                    <div class="tablecell-inner">
+                        <img src="img/logo-carousel/logo-2.png" alt="">
+                    </div>
+                </div>
+                <div class="logo-item">
+                    <div class="tablecell-inner">
+                        <img src="img/logo-carousel/logo-3.png" alt="">
+                    </div>
+                </div>
+                <div class="logo-item">
+                    <div class="tablecell-inner">
+                        <img src="img/logo-carousel/logo-4.png" alt="">
+                    </div>
+                </div>
+                <div class="logo-item">
+                    <div class="tablecell-inner">
+                        <img src="img/logo-carousel/logo-5.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Partner Logo Section End -->
+{% endblock %}

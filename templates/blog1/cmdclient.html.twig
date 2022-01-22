@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+   <section class="shopping-cart spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="cart-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Fname</th>
+                                    <th class="p-name">Lname</th>
+                                    <th><i class="ti-close"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            
+                            {% for Client in Clients %}
+                                <tr>
+                                
+                                    <td class="p-price first-row"><a href="{{ path('singlecmdclient' ,{'id' : Client.idcl }) }}">{{Client.fname}}</a></td>
+                                    <td class="total-price first-row">{{Client.lname}}</td> 
+                                   
+                                    <td class="close-td first-row"><a href="{{ path('cart_remove' ,{'id' : Client.id }) }}"><i class="ti-close"></i></a></td>
+                                </tr>
+                             {% endfor %}   
+                          
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="cart-buttons">
+                                <a href="#" class="primary-btn continue-shop">Continue shopping</a>
+                                <a href="#" class="primary-btn up-cart">Update cart</a>
+                            </div>
+                            <div class="discount-coupon">
+                                <h6>Discount Codes</h6>
+                                <form action="#" class="coupon-form">
+                                    <input type="text" placeholder="Enter your codes">
+                                    <button type="submit" class="site-btn coupon-btn">Apply</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 offset-lg-4">
+                            <div class="proceed-checkout">
+                                <ul>
+                                    <li class="cart-total">Total <span></span></li>
+                                </ul>
+                                <a href="{{ path('check')}}" class="proceed-btn">PROCEED </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
